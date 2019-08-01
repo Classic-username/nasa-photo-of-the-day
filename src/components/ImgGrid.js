@@ -22,7 +22,7 @@ export default function ImgGrid(){
 
     return(
         <div className='img-info' >
-            <ImgCard imgUrl={ imgState } date={ dateState } title={titleState} explanation={explainState} />
+            <ImgCard imgUrl={ imgState } date={ dateState } title={ titleState } explanation={ explainState } />
         </div>
         
     )
