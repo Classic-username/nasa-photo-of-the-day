@@ -4,18 +4,27 @@ import ImgCard from './ImgCard';
 
 export default function ImgGrid(){
     const [imgState, setImgState] = useState();
-    const [dateState, setDateState] = useState('date')
+    const [dateState, setDateState] = useState('date');
+    const [titleState, setTitleState] = useState('title');
+    const [explainState, setExplainState] = useState('information');
 
     useEffect(() => {
         axios
             .get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
             .then(response => {
-                console.log(response.data.url)
+                console.log(response.data);
+                setImgState(response.data.url);
+                setDateState(response.data.date);
+                setTitleState(response.data.title);
+                setExplainState(response.data.explanation);
             })
     }, [])
 
     return(
-        <ImgCard />
+        <div className='img-info' >
+            <ImgCard imgUrl={ imgState } date={ dateState } title={titleState} explanation={explainState} />
+        </div>
+        
     )
 }
 
