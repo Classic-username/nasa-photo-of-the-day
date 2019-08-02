@@ -18,6 +18,12 @@ export default function ImgGrid(){
                 setTitleState(response.data.title);
                 setExplainState(response.data.explanation);
             })
+            .catch(reject => {
+                setImgState('failed to load', reject);
+                setDateState('failed to load', reject);
+                setTitleState('failed to load', reject);
+                setExplainState('failed to load', reject)
+            })
     }, [])
 
     return(
